@@ -5,37 +5,11 @@ namespace DEV_2_ConsoleString
     {
         static void Main ( string [] args )
         {
-            Console.WriteLine("Enter string: ");
+            Console.Write("Enter string: ");
             string inputString = Console.ReadLine();
-            Console.WriteLine(GetMaxSequence(inputString));
+            StringEstimator stringEstimator = new StringEstimator();
+            Console.WriteLine("Max Symbol Sequence = {0}", stringEstimator.GetMaxSequence(inputString));
 
-        }
-
-        static int GetMaxSequence ( string theString )
-        {
-            if ( theString.Length == 0 ) 
-            { 
-                return 0; 
-            }
-
-            int answer = 1, temp = 1;
-            for ( int i = 1; i < theString.Length; i++ )
-            {
-                if ( theString [ i ] != theString [ i - 1 ] )
-                {
-                    if ( answer < temp )
-                    {
-                        answer = temp; 
-                    }
-                    temp = 1;
-                }
-                else 
-                {
-                    temp++;
-                }
-            }
-
-            return answer > temp ? answer : temp;
         }
     }
 }
