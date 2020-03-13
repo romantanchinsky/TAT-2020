@@ -9,7 +9,6 @@ namespace DEV_2_ConsoleString
             string inputString = Console.ReadLine();
             StringEstimator stringEstimator = new StringEstimator();
             Console.WriteLine("Max Symbol Sequence = {0}", stringEstimator.GetMaxSequence(inputString));
-
         }
     }
 }

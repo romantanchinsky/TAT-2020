@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace DEV_2_ConsoleString
 {
-    class StringEstimator
+    public class StringEstimator
     {
+        public const string ARGUMENT_NULL_EXCEPTINO_MESSSAGE = "Argument == null";
         public int GetMaxSequence ( string theString )
         {
-            if ( theString?.Length > 0  )
+            if ( theString == null ) { throw new ArgumentNullException(ARGUMENT_NULL_EXCEPTINO_MESSSAGE); }
+            if ( theString.Length > 0  )
             {
                 int answer = 1, temp = 1;
                 for ( int i = 1; i < theString.Length; i++ )
