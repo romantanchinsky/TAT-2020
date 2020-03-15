@@ -10,10 +10,10 @@ namespace DEV_1._2_NumberSystems
     {
         static void Main ( string [] args )
         {
-            Caller();
+            Invoker();
         }
 
-        static void Caller ()
+        static void Invoker ()
         {
             string exetString = "y";
             int number;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Linq;
 using System.Collections.Generic;
 
 namespace DEV_1._2_NumberSystems
@@ -13,6 +12,7 @@ namespace DEV_1._2_NumberSystems
 
         internal string Convert ( int number, int baseSystem )
         {
+            if ( baseSystem == 10 ) { return number.ToString(); }
             List<int> result = new List<int>();
             bool isNegative = false;
             if ( number < 0 )
