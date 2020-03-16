@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DEV_1._2_NumberSystems
 {
@@ -13,11 +9,11 @@ namespace DEV_1._2_NumberSystems
             Invoker();
         }
 
-        static void Invoker ()
+        public static void Invoker ()
         {
             string exetString = "y";
             int number;
-            int numberSystem;
+            uint numberSystem;
             while ( exetString == "y")
             {
                 while ( true )
@@ -28,10 +24,10 @@ namespace DEV_1._2_NumberSystems
                 while ( true )
                 {
                     Console.WriteLine("Enter number system");
-                    if ( int.TryParse(Console.ReadLine(), out numberSystem) && numberSystem >= 2 && numberSystem <= 20 ) { break; }
+                    if ( uint.TryParse(Console.ReadLine(), out numberSystem) && numberSystem >= 2 && numberSystem <= 20 ) { break; }
                 }
-                SystemConverter systemConverter = new SystemConverter();
-                Console.WriteLine(systemConverter.Convert(number, numberSystem));
+                NumberConverter numberConverter = new NumberConverter();
+                Console.WriteLine(numberConverter.Convert(number, numberSystem));
                 Console.WriteLine("Do you what to contuine (y/n): ");
                 exetString = Console.ReadLine();
             }

@@ -4,32 +4,40 @@ using System.Collections.Generic;
 
 namespace DEV_1._2_NumberSystems
 {
-    public class SystemConverter
+    internal class NumberConverter
     {
         public const string EXCEPTION_CONVERT_MESSAGE = "Cant convert elements > 19";
+        public const string EXCEPTION_BASE_SYSTEM_MESSAGE = "Incorrect base system value";
 
         protected const char ZERO = '0';
 
-        internal string Convert ( int number, int baseSystem )
+        internal string Convert ( int number, uint baseSystem )
         {
+            if ( baseSystem < 2 || baseSystem > 20 ) { throw new ArgumentOutOfRangeException(EXCEPTION_BASE_SYSTEM_MESSAGE); }
             if ( baseSystem == 10 ) { return number.ToString(); }
-            List<int> result = new List<int>();
-            bool isNegative = false;
+            List<uint> result = new List<uint>();
+            bool isNegative;
+            uint newNumber;
             if ( number < 0 )
             {
-                number *= -1;
+                newNumber = (uint)(number * -1);
                 isNegative = true;
-
             }
-            for ( int i = 0; number != 0 ; i++)
+            else
             {
-                result.Add(number % baseSystem);
-                number /= baseSystem;
+                newNumber = (uint)( number );
+                isNegative = false;
             }
+            for ( int i = 0; newNumber != 0 ; i++)
+            {
+                result.Add(newNumber % baseSystem);
+                newNumber /= baseSystem;
+            }
+            
             return ConvertArray(result.ToArray(), isNegative);
         }
 
-        protected string ConvertArray ( int [] number, bool isNegative )
+        protected string ConvertArray ( uint [] number, bool isNegative )
         {
             StringBuilder outString = new StringBuilder();
             if ( isNegative ) { outString.Append('-'); }
@@ -40,7 +48,7 @@ namespace DEV_1._2_NumberSystems
             return outString.ToString();
         }
 
-        protected char ConvertElement ( int element )     // converts number from 0 to 19 to correct char symbol
+        protected char ConvertElement ( uint element )     // converts number from 0 to 19 to correct char symbol
         {
             if ( element < 10 ) { return (char)(element + ZERO); }
             switch ( element )
