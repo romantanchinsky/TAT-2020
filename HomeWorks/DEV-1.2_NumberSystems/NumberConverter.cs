@@ -11,6 +11,12 @@ namespace DEV_1._2_NumberSystems
 
         protected const char ZERO = '0';
 
+        /// <summary>
+        /// method converts a decimal number to a number in another number system from 2 to 20, represented by an array
+        /// </summary>
+        /// <param name="number"></param>
+        /// <param name="baseSystem"></param>
+        /// <returns>a string encapsulating a number in the number system from 2 to 20</returns>
         internal string Convert ( int number, uint baseSystem )
         {
             if ( baseSystem < 2 || baseSystem > 20 ) { throw new ArgumentOutOfRangeException(EXCEPTION_BASE_SYSTEM_MESSAGE); }
@@ -48,7 +54,12 @@ namespace DEV_1._2_NumberSystems
             return outString.ToString();
         }
 
-        protected char ConvertElement ( uint element )     // converts number from 0 to 19 to correct char symbol
+        /// <summary>
+        /// converts number from 0 to 19 to correct char symbol
+        /// </summary>
+        /// <param name="element"></param>
+        /// <returns></returns>
+        protected char ConvertElement ( uint element )
         {
             if ( element < 10 ) { return (char)(element + ZERO); }
             switch ( element )
