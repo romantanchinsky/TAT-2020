@@ -43,8 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Checker.cs" />
     <Compile Include="Entitys\Cars\Bus.cs" />
-    <Compile Include="Entitys\Cars\BaseCar.cs" />
+    <Compile Include="Entitys\Cars\Vehicle.cs" />
     <Compile Include="Entitys\Cars\PassengerCar.cs" />
     <Compile Include="Entitys\Cars\Scooter.cs" />
     <Compile Include="Entitys\Cars\Truck.cs" />

@@ -3,13 +3,13 @@ using System.Text;
 
 namespace CarPark.Entitys.Cars
 {
-    internal abstract class BaseCar
+    internal abstract class Vehicle
     {
         internal Engine Engine { get; set; }
         internal Chassis Chassis { get; set; }
         internal Transmission Transmission { get; set; }
 
-        internal BaseCar ( Engine theEngine, Chassis theChassis, Transmission theTransmission )
+        internal Vehicle ( Engine theEngine, Chassis theChassis, Transmission theTransmission )
         {
             Engine = new Engine(theEngine);
             Chassis = new Chassis(theChassis);

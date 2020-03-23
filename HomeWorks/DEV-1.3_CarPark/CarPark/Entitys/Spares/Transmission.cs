@@ -1,14 +1,31 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace CarPark.Entitys.Spares
 {
     internal class Transmission
     {
-        internal string Type { get; set; }
-        internal uint GearsNumber { get; set; }
-        internal ulong Performance { get; set; }
+        private const string EXCEPTION_MESSAGE = "Only latin letters or numbers can be used";
 
-        internal Transmission ( string theType, uint theGearsNumber, ulong thePerformance )
+        private string _type;
+        internal string Type
+        {
+            get => _type;
+            set
+            {
+                Checker checker = new Checker();
+                if ( !checker.IsLatinLettersAndNumbers(value) )
+                {
+                    throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);
+                }
+                _type = value;
+            } 
+        }
+
+        internal uint GearsNumber { get; set; }
+        internal double Performance { get; set; }
+
+        internal Transmission ( string theType, uint theGearsNumber, double thePerformance )
         {
             Type = theType;
             GearsNumber = theGearsNumber;

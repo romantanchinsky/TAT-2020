@@ -1,15 +1,33 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace CarPark.Entitys.Spares
 {
     internal class Engine
     {
-        internal ulong Power { get; set; }
-        internal ulong Capacity { get; set; }
-        internal string Type { get; set; }
+        private const string EXCEPTION_MESSAGE = "Only latin letters or numbers can be used";
+
+        internal double Power { get; set; }
+        internal double Capacity { get; set; }
+
+        private string _type;
+        internal string Type
+        {
+            get => _type;
+            set
+            {
+                Checker checker = new Checker();
+                if ( !checker.IsLatinLettersAndNumbers(value) )
+                {
+                    throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);                   
+                }
+                _type = value;
+            }
+        }
+
         internal string SerialNumber { get; set; }
 
-        internal Engine ( ulong thePower, ulong theCapacity, string theType, string theSerialNumber )
+        internal Engine ( double thePower, double theCapacity, string theType, string theSerialNumber )
         {
             Power = thePower;
             Capacity = theCapacity;

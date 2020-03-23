@@ -3,11 +3,11 @@ using System.Text;
 
 namespace CarPark.Entitys.Cars
 {
-    class Scooter : BaseCar
+    class Scooter : Vehicle
     {
-        internal ulong Weight { get; set; }
+        internal double Weight { get; set; }
 
-        internal Scooter ( Engine theEngine, Chassis theChassis, Transmission theTransmission, ulong theWeight )
+        internal Scooter ( Engine theEngine, Chassis theChassis, Transmission theTransmission, double theWeight )
             : base(theEngine, theChassis, theTransmission)
         {
             Weight = theWeight;

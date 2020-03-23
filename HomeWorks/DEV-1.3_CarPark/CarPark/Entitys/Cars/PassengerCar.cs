@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CarPark.Entitys.Cars
 {
-    internal class PassengerCar : BaseCar
+    internal class PassengerCar : Vehicle
     {
         internal string Color { get; set; }
 

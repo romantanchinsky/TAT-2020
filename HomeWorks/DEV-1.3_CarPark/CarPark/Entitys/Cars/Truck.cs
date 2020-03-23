@@ -3,11 +3,11 @@ using System.Text;
 
 namespace CarPark.Entitys.Cars
 {
-    internal class Truck : BaseCar
+    internal class Truck : Vehicle
     {
-        internal ulong Height;
+        internal double Height;
 
-        internal Truck ( Engine theEngine, Chassis theChassis, Transmission theTransmission, ulong theHeight )
+        internal Truck ( Engine theEngine, Chassis theChassis, Transmission theTransmission, double theHeight )
             : base(theEngine, theChassis, theTransmission)
         {
             Height = theHeight;

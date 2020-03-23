@@ -3,7 +3,7 @@ using System.Text;
 
 namespace CarPark.Entitys.Cars
 {
-    class Bus : BaseCar
+    class Bus : Vehicle
     {
         internal uint SeatsNumber { get; set; }
 

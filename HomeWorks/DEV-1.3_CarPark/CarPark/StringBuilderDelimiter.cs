@@ -7,6 +7,7 @@ namespace CarPark
     /// </summary>
     internal static class StringBuilderDelimiter
     {
+        const char SYMBOL_SPACE = ' ';
         /// <summary>
         /// extension method adds to stringBuilder delimiter (default == ' ') and then addedString
         /// </summary>
@@ -14,7 +15,7 @@ namespace CarPark
         /// <param name="addedString"></param>
         /// <param name="delimiter"></param>
         /// <returns>stringBuilder</returns>
-        internal static StringBuilder AppendWithDelimiter ( this StringBuilder stringBuilder, string addedString, char delimiter = ' ' )
+        internal static StringBuilder AppendWithDelimiter ( this StringBuilder stringBuilder, string addedString, char delimiter = SYMBOL_SPACE )
         {
             stringBuilder.Append(delimiter);
             stringBuilder.Append(addedString);
