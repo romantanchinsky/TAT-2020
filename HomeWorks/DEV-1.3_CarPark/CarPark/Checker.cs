@@ -11,8 +11,11 @@ namespace CarPark
         private const char SYMBOL_A_LOVERCASE = 'a';
         private const char SYMBOL_Z_LOVERCASE = 'z';
 
-        private bool _flag = false;
-
+        /// <summary>
+        /// checks the string for characters other than numbers and latin letters
+        /// </summary>
+        /// <param name="checkedString"></param>
+        /// <returns></returns>
         internal bool IsLatinLettersAndNumbers(string checkedString)
         {
             if ( checkedString != null && checkedString != String.Empty)
@@ -23,11 +26,11 @@ namespace CarPark
                     {
                         continue;
                     }
-                    return _flag;
+                    return false;
                 }
-                _flag = true;
+                return true;
             }
-            return _flag;
+            return false;
         }
     }
 }

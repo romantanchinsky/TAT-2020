@@ -1,6 +1,7 @@
 ﻿using System;
 using CarPark;
 using CarPark.Entitys.Spares;
+using CarPark.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestCarPark
@@ -69,21 +70,21 @@ namespace UnitTestCarPark
     public class UnitTestSeters
     {
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfLatinLettersAndNumbersRangeException))]
         public void TestEngineTypeSetException ()
         {
             Engine engine = new Engine(1.2, 5.4, "#", "322");
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfLatinLettersAndNumbersRangeException))]
         public void TestChasisNumberSetException ()
         {
             Chassis chassis = new Chassis(1, "&", 1.6 );
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        [ExpectedException(typeof(ArgumentOutOfLatinLettersAndNumbersRangeException))]
         public void TestTransmissionTypeSetException ()
         {
             Transmission transmission = new Transmission(" ", 6, 7.7);

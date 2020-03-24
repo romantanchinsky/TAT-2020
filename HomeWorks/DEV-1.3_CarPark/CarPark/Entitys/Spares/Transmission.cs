@@ -1,4 +1,4 @@
-﻿using System;
+﻿using CarPark.Exceptions;
 using System.Text;
 
 namespace CarPark.Entitys.Spares
@@ -16,7 +16,7 @@ namespace CarPark.Entitys.Spares
                 Checker checker = new Checker();
                 if ( !checker.IsLatinLettersAndNumbers(value) )
                 {
-                    throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);
+                    throw new ArgumentOutOfLatinLettersAndNumbersRangeException();
                 }
                 _type = value;
             } 
