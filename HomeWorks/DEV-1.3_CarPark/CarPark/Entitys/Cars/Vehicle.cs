@@ -21,7 +21,7 @@ namespace CarPark.Entitys.Cars
             StringBuilder outString = new StringBuilder(Engine.ToString());
             outString.AppendWithDelimiter(Chassis.ToString());
             outString.AppendWithDelimiter(Transmission.ToString());
-            return base.ToString();
+            return outString.ToString();
         }
     }
 }
