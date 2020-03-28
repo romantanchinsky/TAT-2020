@@ -30,7 +30,6 @@ namespace DEV_1._2_NumberSystems
             {
                 return number.ToString(); 
             }
-
             List<uint> result = new List<uint>();
             bool isNegative;
             uint newNumber;
