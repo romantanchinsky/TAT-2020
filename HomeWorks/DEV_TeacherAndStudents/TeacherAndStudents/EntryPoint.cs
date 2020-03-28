@@ -18,10 +18,12 @@ namespace TeacherAndStudents
             Teacher teacher = new Teacher("Eduard", "Chemodan");
             teacher.Subscribe(students);
 
+            students [ 5 ].Subscribe(teacher);
             foreach ( var student in students )
             {
                 student.DoTask();
             }
+
         }
     }
 }

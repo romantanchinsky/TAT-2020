@@ -5,6 +5,7 @@ namespace TeacherAndStudents.Entitys
 {
     public class Teacher : Person
     {
+        public event EventHandler<List<StructResult>> resultsPosting;
         private int _studentsNumber = 0;
         private List<StructResult> _results;
 
@@ -33,6 +34,7 @@ namespace TeacherAndStudents.Entitys
             {
                 Console.WriteLine("Name {0}, Answer {1}, Mark {2}", element.StudentName, element.Answer, element.Mark);
             }
+            resultsPosting?.Invoke(this, _results);
         }
 
         public void Subscribe ( List<Student> students )
