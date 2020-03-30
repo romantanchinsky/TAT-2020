@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbstractClassesAndInterfaces.Entitys
+namespace AbstractClassesAndInterfaces.Entitys.FlyingObjects
 {
     public abstract class FlyingObject
     {

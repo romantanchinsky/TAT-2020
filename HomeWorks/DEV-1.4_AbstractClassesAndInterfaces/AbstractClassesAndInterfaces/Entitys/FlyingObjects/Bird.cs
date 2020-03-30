@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbstractClassesAndInterfaces.Entitys
+namespace AbstractClassesAndInterfaces.Entitys.FlyingObjects
 {
     public class Bird : FlyingObject, IFlyable
     {
@@ -8,8 +8,7 @@ namespace AbstractClassesAndInterfaces.Entitys
         public Bird ( Coordinate theCoordinate ) 
             : base (theCoordinate)
         {
-            Random random = new Random();
-            Speed = (uint)random.Next(20);
+            Speed = (uint)Randomizer.random.Next(1, 20);
         }
 
         public void FlyTo ( Coordinate NewPosition )
