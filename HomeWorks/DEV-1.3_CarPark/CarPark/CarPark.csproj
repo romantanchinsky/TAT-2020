@@ -54,6 +54,11 @@
     <Compile Include="Entitys\Spares\Transmission.cs" />
     <Compile Include="Exceptions\ArgumentOutOfLatinLettersAndNumbersRangeException.cs" />
     <Compile Include="EntryPoint.cs" />
+    <Compile Include="Factory\BusWithFortyFiveSeatsCreator.cs" />
+    <Compile Include="Factory\CarWithAutomaticTransmissionAndGasEngineCreator.cs" />
+    <Compile Include="Factory\CarWithManualTransmissionCreator.cs" />
+    <Compile Include="Factory\IVehicleCreator.cs" />
+    <Compile Include="Factory\TruckWithManualTransmission.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderDelimiter.cs" />
   </ItemGroup>

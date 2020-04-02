@@ -2,6 +2,7 @@
 using CarPark.Entitys.Spares;
 using System;
 using System.Collections.Generic;
+using CarPark.Factory;
 
 namespace CarPark
 {
@@ -10,15 +11,29 @@ namespace CarPark
         static void Main ( string [] args )
         {
             List<Vehicle> vehicles = new List<Vehicle>();
+            CarWithAutomaticTransmissionAndGasEngineCreator carWithAutomaticTransmissionAndGasEngineCreator = new CarWithAutomaticTransmissionAndGasEngineCreator();
+            AddVehicles(vehicles, carWithAutomaticTransmissionAndGasEngineCreator, 2);
 
-            vehicles.Add(new Bus(new Engine(1.0, 1.0, "type", "serialNumber"), new Chassis(1, "number", 1.0), new Transmission("type", 1, 1.0), 1));
-            vehicles.Add(new PassengerCar(new Engine(2.0, 2.0, "type", "serialNumber"), new Chassis(2, "number", 2.0), new Transmission("type", 2, 2.0), "color"));
-            vehicles.Add(new Scooter(new Engine(3.0, 3.0, "type", "serialNumber"), new Chassis(3, "number", 3.0), new Transmission("type", 3, 3.0), 3));
-            vehicles.Add(new Truck(new Engine(4.0, 4.0, "type", "serialNumber"), new Chassis(4, "number", 4.0), new Transmission("type", 4, 4.0), 4));
+            CarWithManualTransmissionCreator carWithManualTransmissionCreator = new CarWithManualTransmissionCreator();
+            AddVehicles(vehicles, carWithManualTransmissionCreator, 3);
+
+            BusWithFortyFiveSeatsCreator busWithFortyFiveSeatsCreator = new BusWithFortyFiveSeatsCreator();
+            AddVehicles(vehicles, busWithFortyFiveSeatsCreator, 2);
+
+            TruckWithManualTransmission truckWithManualTransmission = new TruckWithManualTransmission();
+            AddVehicles(vehicles, truckWithManualTransmission, 2);
 
             foreach ( var vehicle in vehicles )
             {
-                Console.WriteLine(vehicle);
+                Console.WriteLine(vehicle.ToString());
+            }
+        }
+
+        static void AddVehicles( List<Vehicle> vehicles, IVehicleCreator creator, int numberOfVehicles )
+        {
+            for ( int i = 0; i < numberOfVehicles; i++ )
+            {
+                vehicles.Add(creator.FactoryMethod());
             }
         }
     }
