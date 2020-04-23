@@ -13,43 +13,43 @@ namespace UnitTestDEV_2
         [ExpectedException(typeof(ArgumentNullException))]
         public void TestGetMaxSequenceArgumentNull ()
         {
-            stringEstimator.GetMaxSequence(null);
+            stringEstimator.CountMaxConsecutiveUnequalSymbols(null);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceArgumentStringEmpty ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence(String.Empty), 0);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols(String.Empty), 0);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceOneCharacterArgument ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence("a"), 1);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols("a"), 1);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceTwoDifferentChatacterArgument ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence("1="), 1);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols("1="), 1);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceTwoSameChatacterArgument ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence("gg"), 2);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols("gg"), 2);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceInTheBeginn ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence("ssss1234560;fmrddopeee"), 4);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols("ssss1234560;fmrddopeee"), 4);
         }
 
         [TestMethod]
         public void TestGetMaxSequenceInTheEnd ()
         {
-            Assert.AreEqual(stringEstimator.GetMaxSequence("aaqwrbt5555[[[[["), 5);
+            Assert.AreEqual(stringEstimator.CountMaxConsecutiveUnequalSymbols("aaqwrbt5555[[[[["), 5);
         }
     }
 }

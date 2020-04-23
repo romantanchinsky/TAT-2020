@@ -1,38 +1,79 @@
 ﻿using System;
+using System.Text;
 
 namespace DEV_2_ConsoleString
 {
     public class StringEstimator
     {
-        public const string ARGUMENT_NULL_EXCEPTION_MESSAGE = "Argument == null";
-        public int GetMaxSequence ( string checkedString )
+        private int CountMaxConsecutiveIdenticalSymbols(string checkedString, Predicate<char> additionalСondition)
         {
-            if ( checkedString == null )
+            int maxLength = 0;
+            if (String.IsNullOrEmpty(checkedString))
             {
-                throw new ArgumentNullException(ARGUMENT_NULL_EXCEPTION_MESSAGE);
-            }
-            if ( checkedString.Length > 1  )
-            {
-                int maxLength = 1, 
-                    currentLength = 1;
-                for ( int i = 1; i < checkedString.Length; i++ )
+                int currentLength = 1;
+                for (int i = 1; i < checkedString.Length; i++)
                 {
-                    if ( checkedString [ i ] != checkedString [ i - 1 ] )
+                    if (checkedString[i] == checkedString[i - 1] && additionalСondition(checkedString[i]))
                     {
-                        if ( maxLength < currentLength )
-                        { 
+                        currentLength++;
+                    }
+                    else
+                    {
+                        if (currentLength > maxLength)
+                        {
                             maxLength = currentLength;
                         }
                         currentLength = 1;
                     }
-                    else 
-                    { 
-                        currentLength++; 
-                    }
                 }
                 return maxLength > currentLength ? maxLength : currentLength;
             }
-            return checkedString == String.Empty ?  0 : 1;
+            return maxLength;
+        }
+
+        private bool IsLatinLetter(char symbol)
+        {
+            return symbol >= 'a' && symbol <= 'z' || symbol >= 'A' && symbol <= 'Z';
+        }
+
+        private bool IsNumber(char symbol)
+        {
+            return symbol >= '1' && symbol <= '9';
+        }
+
+        public int CountMaxConsecutiveIdenticalLatinLetters(string checkedString)
+        {
+            return checkedString != null ? CountMaxConsecutiveIdenticalSymbols(checkedString, IsLatinLetter) : throw new ArgumentNullException();
+        }
+
+        public int CountMaxConsecutiveIdenticalNumbers(string checkedString)
+        {
+            return CountMaxConsecutiveIdenticalSymbols(checkedString, IsNumber);
+        }
+
+        public int CountMaxConsecutiveUnequalSymbols(string checkedString)
+        {
+            int maxLength = 0;
+            if (!String.IsNullOrEmpty(checkedString))
+            {
+                StringBuilder currentUnequalSequence = new StringBuilder(checkedString[0]);
+                int symbolPosition = -1;
+                for (int i = 1; i < checkedString.Length; i++)
+                {
+                    symbolPosition = currentUnequalSequence.ToString().IndexOf(checkedString[i]);
+                    if (symbolPosition != -1)
+                    {
+                        if (currentUnequalSequence.Length > maxLength)
+                        {
+                            maxLength = currentUnequalSequence.Length;
+                        }
+                        currentUnequalSequence.Remove(0, symbolPosition + 1);
+                    }
+                    currentUnequalSequence.Append(checkedString[i]);
+                }
+                return maxLength > currentUnequalSequence.Length ? maxLength : currentUnequalSequence.Length;
+            }
+            return maxLength;
         }
     }
 }
