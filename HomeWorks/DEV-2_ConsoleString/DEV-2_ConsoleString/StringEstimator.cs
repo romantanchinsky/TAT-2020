@@ -7,28 +7,35 @@ namespace DEV_2_ConsoleString
     {
         private int CountMaxConsecutiveIdenticalSymbols(string checkedString, Predicate<char> additionalСondition)
         {
-            int maxLength = 0;
-            if (String.IsNullOrEmpty(checkedString))
+            if (!String.IsNullOrEmpty(checkedString))
             {
-                int currentLength = 1;
+                int maxLength, currentLength;
+                bool IsFirstElementOfCurrentSequence = true;
+                maxLength = currentLength = additionalСondition(checkedString[0]) ? 1 : 0;
                 for (int i = 1; i < checkedString.Length; i++)
                 {
-                    if (checkedString[i] == checkedString[i - 1] && additionalСondition(checkedString[i]))
+                    if (additionalСondition(checkedString[i - 1]) && checkedString[i] == checkedString[i - 1])
                     {
+                        if (IsFirstElementOfCurrentSequence)
+                        {
+                            IsFirstElementOfCurrentSequence = false;
+                            currentLength = 1;
+                        }
                         currentLength++;
                     }
-                    else
+                    else if (!IsFirstElementOfCurrentSequence)
                     {
                         if (currentLength > maxLength)
                         {
                             maxLength = currentLength;
                         }
-                        currentLength = 1;
+                        IsFirstElementOfCurrentSequence = true;
+                        currentLength = 0;
                     }
                 }
                 return maxLength > currentLength ? maxLength : currentLength;
             }
-            return maxLength;
+            return 0;
         }
 
         private bool IsLatinLetter(char symbol)
@@ -38,7 +45,7 @@ namespace DEV_2_ConsoleString
 
         private bool IsNumber(char symbol)
         {
-            return symbol >= '1' && symbol <= '9';
+            return symbol >= '0' && symbol <= '9';
         }
 
         public int CountMaxConsecutiveIdenticalLatinLetters(string checkedString)
@@ -48,7 +55,7 @@ namespace DEV_2_ConsoleString
 
         public int CountMaxConsecutiveIdenticalNumbers(string checkedString)
         {
-            return CountMaxConsecutiveIdenticalSymbols(checkedString, IsNumber);
+            return checkedString != null ? CountMaxConsecutiveIdenticalSymbols(checkedString, IsNumber) : throw new ArgumentNullException();
         }
 
         public int CountMaxConsecutiveUnequalSymbols(string checkedString)
@@ -56,8 +63,9 @@ namespace DEV_2_ConsoleString
             int maxLength = 0;
             if (!String.IsNullOrEmpty(checkedString))
             {
-                StringBuilder currentUnequalSequence = new StringBuilder(checkedString[0]);
-                int symbolPosition = -1;
+                StringBuilder currentUnequalSequence = new StringBuilder();
+                currentUnequalSequence.Append(checkedString[0]);
+                int symbolPosition;
                 for (int i = 1; i < checkedString.Length; i++)
                 {
                     symbolPosition = currentUnequalSequence.ToString().IndexOf(checkedString[i]);
