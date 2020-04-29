@@ -5,6 +5,10 @@ namespace DEV_2_ConsoleString
 {
     public class StringEstimator
     {
+        private const char SYMBOL_A_LOWERCASE = 'a',
+                           SYMBOL_Z_LOWERCASE = 'z',
+                           SYMBOL_ZERO = '0',
+                           SYMBOL_NINE = '9';
         private int CountMaxConsecutiveIdenticalSymbols(string checkedString, Predicate<char> additionalСondition)
         {
             if (!String.IsNullOrEmpty(checkedString))
@@ -40,17 +44,17 @@ namespace DEV_2_ConsoleString
 
         private bool IsLatinLetter(char symbol)
         {
-            return symbol >= 'a' && symbol <= 'z' || symbol >= 'A' && symbol <= 'Z';
+            return symbol >= SYMBOL_A_LOWERCASE && symbol <= SYMBOL_Z_LOWERCASE;
         }
 
         private bool IsNumber(char symbol)
         {
-            return symbol >= '0' && symbol <= '9';
+            return symbol >= SYMBOL_ZERO && symbol <= SYMBOL_NINE;
         }
 
         public int CountMaxConsecutiveIdenticalLatinLetters(string checkedString)
         {
-            return checkedString != null ? CountMaxConsecutiveIdenticalSymbols(checkedString, IsLatinLetter) : throw new ArgumentNullException();
+            return checkedString != null ? CountMaxConsecutiveIdenticalSymbols(checkedString.ToLower(), IsLatinLetter) : throw new ArgumentNullException();
         }
 
         public int CountMaxConsecutiveIdenticalNumbers(string checkedString)
