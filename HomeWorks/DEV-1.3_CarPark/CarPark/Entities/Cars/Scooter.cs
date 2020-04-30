@@ -1,11 +1,11 @@
-﻿using CarPark.Entitys.Spares;
+﻿using CarPark.Entities.Spares;
 using System.Text;
 
-namespace CarPark.Entitys.Cars
+namespace CarPark.Entities.Cars
 {
     class Scooter : Vehicle
     {
-        internal double Weight { get; set; }
+        internal double Weight { get; private set; }
 
         internal Scooter ( Engine theEngine, Chassis theChassis, Transmission theTransmission, double theWeight )
             : base(theEngine, theChassis, theTransmission)

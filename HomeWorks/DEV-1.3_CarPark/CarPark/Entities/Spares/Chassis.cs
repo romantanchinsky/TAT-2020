@@ -1,17 +1,17 @@
 ﻿using CarPark.Exceptions;
 using System.Text;
 
-namespace CarPark.Entitys.Spares
+namespace CarPark.Entities.Spares
 {
     internal class Chassis
     {
-        internal uint WheelsNumber  { get; set; }
+        internal uint WheelsNumber  { get; private set; }
 
         private string _number;
         internal string Number
         {
             get => _number;
-            set
+            private set
             {
                 Checker checker = new Checker();
                 if ( !checker.IsLatinLettersAndNumbers(value) )
@@ -22,7 +22,7 @@ namespace CarPark.Entitys.Spares
             }
         }
 
-        internal double PermissibleLoad { get; set; }
+        internal double PermissibleLoad { get; private set; }
 
         internal Chassis ( uint theWheelsNumber, string theNumber, double thePermissibleLoad )
         {

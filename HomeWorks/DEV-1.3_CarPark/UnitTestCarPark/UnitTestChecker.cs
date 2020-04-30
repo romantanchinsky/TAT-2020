@@ -1,6 +1,6 @@
 ﻿using System;
 using CarPark;
-using CarPark.Entitys.Spares;
+using CarPark.Entities.Spares;
 using CarPark.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

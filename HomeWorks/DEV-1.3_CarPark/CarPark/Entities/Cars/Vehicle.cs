@@ -1,13 +1,13 @@
-﻿using CarPark.Entitys.Spares;
+﻿using CarPark.Entities.Spares;
 using System.Text;
 
-namespace CarPark.Entitys.Cars
+namespace CarPark.Entities.Cars
 {
     internal abstract class Vehicle
     {
-        internal Engine Engine { get; set; }
-        internal Chassis Chassis { get; set; }
-        internal Transmission Transmission { get; set; }
+        internal Engine Engine { get; private set; }
+        internal Chassis Chassis { get; private set; }
+        internal Transmission Transmission { get; private set; }
 
         internal Vehicle ( Engine theEngine, Chassis theChassis, Transmission theTransmission )
         {

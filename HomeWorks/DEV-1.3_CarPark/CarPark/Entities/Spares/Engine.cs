@@ -1,18 +1,18 @@
 ﻿using CarPark.Exceptions;
 using System.Text;
 
-namespace CarPark.Entitys.Spares
+namespace CarPark.Entities.Spares
 {
     internal class Engine
     {
-        internal double Power { get; set; }
-        internal double Capacity { get; set; }
+        internal double Power { get; private set; }
+        internal double Capacity { get; private set; }
 
         private string _type;
         internal string Type
         {
             get => _type;
-            set
+            private set
             {
                 Checker checker = new Checker();
                 if ( !checker.IsLatinLettersAndNumbers(value) )
@@ -23,7 +23,7 @@ namespace CarPark.Entitys.Spares
             }
         }
 
-        internal string SerialNumber { get; set; }
+        internal string SerialNumber { get; private set; }
 
         internal Engine ( double thePower, double theCapacity, string theType, string theSerialNumber )
         {

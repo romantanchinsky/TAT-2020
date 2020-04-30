@@ -6,8 +6,6 @@ namespace CarPark
     {
         private const char SYMBOL_ZERO = '0';
         private const char SYMBOL_NINE = '9';
-        private const char SYMBOL_A_CAPITAL = 'A';
-        private const char SYMBOL_Z_CAPITAL = 'Z';
         private const char SYMBOL_A_LOVERCASE = 'a';
         private const char SYMBOL_Z_LOVERCASE = 'z';
 
@@ -18,15 +16,14 @@ namespace CarPark
         /// <returns></returns>
         internal bool IsLatinLettersAndNumbers(string checkedString)
         {
-            if ( checkedString != null && checkedString != String.Empty)
+            if ( !String.IsNullOrEmpty(checkedString) )
             {
-                foreach ( var symbol in checkedString )
+                foreach ( var symbol in checkedString.ToLower() )
                 {
-                    if ( symbol >= SYMBOL_ZERO && symbol <= SYMBOL_NINE || symbol >= SYMBOL_A_CAPITAL && symbol <= SYMBOL_Z_CAPITAL || symbol >= SYMBOL_A_LOVERCASE && symbol <= SYMBOL_Z_LOVERCASE )
+                    if ( !(symbol >= SYMBOL_ZERO && symbol <= SYMBOL_NINE) && !(symbol >= SYMBOL_A_LOVERCASE && symbol <= SYMBOL_Z_LOVERCASE) )
                     {
-                        continue;
+                        return false;
                     }
-                    return false;
                 }
                 return true;
             }

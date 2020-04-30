@@ -1,11 +1,11 @@
-﻿using CarPark.Entitys.Spares;
+﻿using CarPark.Entities.Spares;
 using System.Text;
 
-namespace CarPark.Entitys.Cars
+namespace CarPark.Entities.Cars
 {
     internal class PassengerCar : Vehicle
     {
-        internal string Color { get; set; }
+        internal string Color { get; private set; }
 
         internal PassengerCar( Engine theEngine, Chassis theChassis, Transmission theTransmission, string theColor )
             : base( theEngine, theChassis, theTransmission )

@@ -44,21 +44,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Checker.cs" />
-    <Compile Include="Entitys\Cars\Bus.cs" />
-    <Compile Include="Entitys\Cars\Vehicle.cs" />
-    <Compile Include="Entitys\Cars\PassengerCar.cs" />
-    <Compile Include="Entitys\Cars\Scooter.cs" />
-    <Compile Include="Entitys\Cars\Truck.cs" />
-    <Compile Include="Entitys\Spares\Chassis.cs" />
-    <Compile Include="Entitys\Spares\Engine.cs" />
-    <Compile Include="Entitys\Spares\Transmission.cs" />
+    <Compile Include="Entities\Cars\Bus.cs" />
+    <Compile Include="Entities\Cars\Vehicle.cs" />
+    <Compile Include="Entities\Cars\PassengerCar.cs" />
+    <Compile Include="Entities\Cars\Scooter.cs" />
+    <Compile Include="Entities\Cars\Truck.cs" />
+    <Compile Include="Entities\Spares\Chassis.cs" />
+    <Compile Include="Entities\Spares\Engine.cs" />
+    <Compile Include="Entities\Spares\Transmission.cs" />
     <Compile Include="Exceptions\ArgumentOutOfLatinLettersAndNumbersRangeException.cs" />
     <Compile Include="EntryPoint.cs" />
-    <Compile Include="Factory\BusWithFortyFiveSeatsCreator.cs" />
-    <Compile Include="Factory\CarWithAutomaticTransmissionAndGasEngineCreator.cs" />
-    <Compile Include="Factory\CarWithManualTransmissionCreator.cs" />
-    <Compile Include="Factory\IVehicleCreator.cs" />
-    <Compile Include="Factory\TruckWithManualTransmission.cs" />
+    <Compile Include="Factory\BusWithFortyFiveSeatsFactory.cs" />
+    <Compile Include="Factory\AutomaticTransmissionAndGasEngineFactory.cs" />
+    <Compile Include="Factory\IFactory.cs" />
+    <Compile Include="Factory\ManualTransmissionFactory.cs" />
+    <Compile Include="ProductException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringBuilderDelimiter.cs" />
   </ItemGroup>

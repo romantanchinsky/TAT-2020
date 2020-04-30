@@ -1,11 +1,11 @@
-﻿using CarPark.Entitys.Spares;
+﻿using CarPark.Entities.Spares;
 using System.Text;
 
-namespace CarPark.Entitys.Cars
+namespace CarPark.Entities.Cars
 {
     internal class Truck : Vehicle
     {
-        internal double Height;
+        internal double Height { get; private set; }
 
         internal Truck ( Engine theEngine, Chassis theChassis, Transmission theTransmission, double theHeight )
             : base(theEngine, theChassis, theTransmission)

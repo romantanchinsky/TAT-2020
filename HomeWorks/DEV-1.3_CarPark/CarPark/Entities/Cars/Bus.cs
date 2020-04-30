@@ -1,11 +1,11 @@
-﻿using CarPark.Entitys.Spares;
+﻿using CarPark.Entities.Spares;
 using System.Text;
 
-namespace CarPark.Entitys.Cars
+namespace CarPark.Entities.Cars
 {
     class Bus : Vehicle
     {
-        internal uint SeatsNumber { get; set; }
+        internal uint SeatsNumber { get; private set; }
 
         internal Bus ( Engine theEngine, Chassis theChassis, Transmission theTransmission, uint theSeatsNumber )
             : base(theEngine, theChassis, theTransmission)
