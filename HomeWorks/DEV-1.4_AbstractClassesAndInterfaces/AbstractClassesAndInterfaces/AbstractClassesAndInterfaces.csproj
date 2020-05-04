@@ -43,12 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entitys\FlyingObjects\Airplane.cs" />
-    <Compile Include="Entitys\FlyingObjects\Bird.cs" />
-    <Compile Include="Entitys\Coordinate.cs" />
-    <Compile Include="Entitys\FlyingObjects\Drone.cs" />
-    <Compile Include="Entitys\FlyingObjects\FlyingObject.cs" />
-    <Compile Include="Entitys\Randomizer.cs" />
+    <Compile Include="Entities\FlyingObjects\Airplane.cs" />
+    <Compile Include="Entities\FlyingObjects\Bird.cs" />
+    <Compile Include="Entities\Coordinate.cs" />
+    <Compile Include="Entities\FlyingObjects\Drone.cs" />
+    <Compile Include="Entities\FlyingObjects\FlyingObject.cs" />
+    <Compile Include="Entities\Randomizer.cs" />
     <Compile Include="IFlyable.cs" />
     <Compile Include="EntryPoint.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

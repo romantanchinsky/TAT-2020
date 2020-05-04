@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbstractClassesAndInterfaces.Entitys
+namespace AbstractClassesAndInterfaces.Entities
 {
     public class Coordinate
     {
@@ -12,7 +12,7 @@ namespace AbstractClassesAndInterfaces.Entitys
             get => _x;
             set
             {
-                if ( !IsPositive(value) )
+                if ( !IsPermissible(value) )
                 {
                     throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);
                 }
@@ -26,7 +26,7 @@ namespace AbstractClassesAndInterfaces.Entitys
             get => _y;
             set
             {
-                if ( !IsPositive(value) )
+                if ( !IsPermissible(value) )
                 {
                     throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);
                 }
@@ -40,7 +40,7 @@ namespace AbstractClassesAndInterfaces.Entitys
             get => _z;
             set
             {
-                if ( !IsPositive(value) )
+                if ( !IsPermissible(value) )
                 {
                     throw new ArgumentOutOfRangeException(EXCEPTION_MESSAGE);
                 }
@@ -55,9 +55,9 @@ namespace AbstractClassesAndInterfaces.Entitys
             Z = theZ;
         }
 
-        private bool IsPositive ( double number )
+        private bool IsPermissible ( double coordinate )
         {
-            return number > 0;
+            return coordinate >= 0;
         }
     }
 }

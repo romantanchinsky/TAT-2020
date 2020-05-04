@@ -1,12 +1,11 @@
-﻿using System;
-
-namespace AbstractClassesAndInterfaces.Entitys.FlyingObjects
+﻿namespace AbstractClassesAndInterfaces.Entities.FlyingObjects
 {
     public class Airplane : FlyingObject, IFlyable
     {
         private static uint STARTING_SPEED = 200;
         private static double ACCELERATION_DISTANCE = 10;
         private static double ACCELERATION = 10;
+
         public Airplane ( Coordinate theCoordinate )
            : base(theCoordinate)
         { }

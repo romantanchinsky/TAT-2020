@@ -1,5 +1,5 @@
 ﻿using System;
-using AbstractClassesAndInterfaces.Entitys;
+using AbstractClassesAndInterfaces.Entities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestAbstractClassesAndInterfaces

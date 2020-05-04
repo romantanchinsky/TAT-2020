@@ -1,4 +1,4 @@
-﻿using AbstractClassesAndInterfaces.Entitys;
+﻿using AbstractClassesAndInterfaces.Entities;
 
 namespace AbstractClassesAndInterfaces
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AbstractClassesAndInterfaces.Entitys
+namespace AbstractClassesAndInterfaces.Entities
 {
     public static class Randomizer
     {

@@ -1,6 +1,6 @@
 ﻿using System;
-using AbstractClassesAndInterfaces.Entitys;
-using AbstractClassesAndInterfaces.Entitys.FlyingObjects;
+using AbstractClassesAndInterfaces.Entities;
+using AbstractClassesAndInterfaces.Entities.FlyingObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestAbstractClassesAndInterfaces
@@ -8,8 +8,6 @@ namespace UnitTestAbstractClassesAndInterfaces
     [TestClass]
     public class TestDrone
     {
-        private static double MAX_DISTANCE = 1000.0;
-
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void NegativeTestFlyToExcessOfDistance ()
