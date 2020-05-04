@@ -14,7 +14,10 @@ namespace Points
             get => _x;
             set
             {
-                if ( value < 0 ) { throw new ArgumentOutOfRangeException(EXCEPTION_OUT_OF_RANGE_MESSAGE); }
+                if ( value < 0 )
+                {
+                    throw new ArgumentOutOfRangeException(EXCEPTION_OUT_OF_RANGE_MESSAGE); 
+                }
                 _x = value;
             }
 
@@ -26,10 +29,14 @@ namespace Points
             get => _y;
             set
             {
-                if ( value < 0 ) { throw new ArgumentOutOfRangeException(EXCEPTION_OUT_OF_RANGE_MESSAGE); }
+                if ( value < 0 ) 
+                {
+                    throw new ArgumentOutOfRangeException(EXCEPTION_OUT_OF_RANGE_MESSAGE); 
+                }
                 _y = value; 
             }
         }
+
         public Point ( double theX, double theY )
         {
             X = theX;
@@ -58,13 +65,17 @@ namespace Points
             }
             return new Point(first.X + second.X, first.Y + second.Y);
         }
+
         public static Point operator - ( Point first, Point second )
         {
             if ( first == null || second == null )
             {
                 throw new ArgumentNullException(EXCEPTION_NULL_MESSAGE);
             }
-            if ( ( first.X - second.X < 0 ) || ( first.Y - second.Y < 0 ) ) { throw new ArgumentOutOfRangeException(EXCEPTION_MINUS_MESSAGE); }
+            if ( ( first.X - second.X < 0 ) || ( first.Y - second.Y < 0 ) )
+            {
+                throw new ArgumentOutOfRangeException(EXCEPTION_MINUS_MESSAGE); 
+            }
             return new Point(first.X - second.X, first.Y - second.Y);
         }
     }
