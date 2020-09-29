@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCarDB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <CarDB>
+    <BrandID>0</BrandID>
+    <ModelID>0</ModelID>
+    <Price>35000</Price>
+  </CarDB>
+  <CarDB>
+    <BrandID>0</BrandID>
+    <ModelID>4</ModelID>
+    <Price>10,5</Price>
+  </CarDB>
+  <CarDB>
+    <BrandID>1</BrandID>
+    <ModelID>2</ModelID>
+    <Price>1000000</Price>
+  </CarDB>
+  <CarDB>
+    <BrandID>2</BrandID>
+    <ModelID>1</ModelID>
+    <Price>15000</Price>
+  </CarDB>
+  <CarDB>
+    <BrandID>2</BrandID>
+    <ModelID>3</ModelID>
+    <Price>13500</Price>
+  </CarDB>
+</ArrayOfCarDB>
